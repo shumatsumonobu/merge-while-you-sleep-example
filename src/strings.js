@@ -353,3 +353,15 @@ export function countOf(s, sub) {
   }
   return count;
 }
+
+/**
+ * 空白（半角スペース、タブ、改行、全角スペース U+3000 などの Unicode の空白）で区切った、
+ * 空でないまとまりの数を返す。句読点や記号は区切りにしない
+ * @param {string} s
+ * @returns {number}
+ */
+export function wordCount(s) {
+  const trimmed = s.trim();
+  if (trimmed === "") return 0;
+  return trimmed.split(/\s+/).length;
+}
