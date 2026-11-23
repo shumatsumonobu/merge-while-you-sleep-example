@@ -61,7 +61,7 @@ jobs:
         with:
           persist-credentials: false
       - id: draft
-        uses: shumatsumonobu/merge-while-you-sleep/actions/draft@94932044cdab57e8d1a43ec3110cd93f6cb9201a
+        uses: shumatsumonobu/merge-while-you-sleep/actions/draft@fee3a25f0bdd453e2e7273584aa3644ba8b21031
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
       - if: steps.draft.outputs.artifact_dir != ''
@@ -84,7 +84,7 @@ jobs:
       issues: write
       actions: read
     steps:
-      - uses: shumatsumonobu/merge-while-you-sleep/actions/notify@94932044cdab57e8d1a43ec3110cd93f6cb9201a
+      - uses: shumatsumonobu/merge-while-you-sleep/actions/notify@fee3a25f0bdd453e2e7273584aa3644ba8b21031
         with:
           run_workflow: merge-while-you-sleep-run.yml
 
@@ -96,7 +96,7 @@ jobs:
     permissions:
       issues: write
     steps:
-      - uses: shumatsumonobu/merge-while-you-sleep/actions/cleanup@94932044cdab57e8d1a43ec3110cd93f6cb9201a
+      - uses: shumatsumonobu/merge-while-you-sleep/actions/cleanup@fee3a25f0bdd453e2e7273584aa3644ba8b21031
         with:
           target: draft
           needs: ${{ toJSON(needs) }}
